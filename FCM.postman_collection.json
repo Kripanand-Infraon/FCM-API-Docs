@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "d9a3d2de-750f-434c-b16b-99a344d1934a",
+		"name": "FCM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29470872"
+	},
+	"item": [
+		{
+			"name": "FCM Push Notification",
+			"item": [
+				{
+					"name": "force_update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fcm_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": \"{{deviceToken}}\",\r\n    \"priority\": \"high\",\r\n    \"data\": {\r\n        // 1.Force Update \r\n        \"title\": \"App Update Required!\",\r\n        \"body\": \"Please Update The App\",\r\n        \"type\": \"force_update\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "flexible_update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fcm_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": \"{{deviceToken}}\",\r\n    \"priority\": \"high\",\r\n    \"data\": {\r\n        // 2.Flexible  Update \r\n        \"title\": \"New Version Available!\",\r\n        \"body\": \"Please update the app for better user experience.\",\r\n        \"type\": \"flexible_update\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asset_added (show big image)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fcm_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": \"{{deviceToken}}\",\r\n    \"priority\": \"high\",\r\n    \"data\": {\r\n        //3.Big image show \r\n        \"title\": \"Asset added !\",\r\n        \"body\": \"Ayush kumar added it-asset\",\r\n        \"image\": \"https://happay.com/blog/wp-content/uploads/sites/12/2023/04/best-asset-management-software-system-solutions.webp\",\r\n        \"type\": \"asset_added\",\r\n        \"asset\": {\r\n            \"asset_id\": \"ASSET0001\",\r\n            \"cid\": \"117769199052525670400\"\r\n        }\r\n        \r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asset_updated (show small image)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fcm_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": \"{{deviceToken}}\",\r\n    \"priority\": \"high\",\r\n    \"data\": {\r\n        //4.Small image show \r\n        \"title\": \"Asset Updated !\",\r\n        \"body\": \"Ayush kumar updated the it-asset\",\r\n        \"image\": \"https://happay.com/blog/wp-content/uploads/sites/12/2023/04/best-asset-management-software-system-solutions.webp\"\r\n       \r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ticket_assigned(show ticket action)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{fcm_key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to\": \"{{deviceToken}}\",\r\n    \"priority\": \"high\",\r\n    \"data\": {\r\n        //5.Ticket assigned\r\n        \"title\": \"Ticket Assigned!\",\r\n        \"body\": \"Ayush Kumar  Assigned! Ticket to you.\",\r\n        \"image\": \"https://happay.com/blog/wp-content/uploads/sites/12/2023/04/best-asset-management-software-system-solutions.webp\",\r\n        \"type\": \"ticket_action\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
